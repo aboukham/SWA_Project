@@ -7,19 +7,19 @@ spring:
       - id: customerModule
         uri: http://CustomerService
         predicates:
-        - Path=/customer/**
+        - Path=/**
       - id: bookQueryModule
         uri: lb://BookQueryService
         predicates:
-        - Path=/book/**
+        - Path=/books/**
       - id: bookCommandModule
         uri: http://BookCommandService
         predicates:
-          - Path=/book/**
+          - Path=/books/**
       - id: reviewService
         uri: http://ReviewService
         predicates:
-          - Path=/review/**
+          - Path=/reviews/**
       - id: borrowingModule
         uri: http://BorrowingService
         predicates:

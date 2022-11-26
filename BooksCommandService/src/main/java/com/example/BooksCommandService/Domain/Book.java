@@ -3,13 +3,17 @@ package com.example.BooksCommandService.Domain;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+import java.util.ArrayList;
+import java.util.List;
+
+@Document("BookCommand")
 public class Book {
     @Id
     private String  isbn;
     private String  title;
     private String  description;
     private String  authorName;
+    private List<Review> reviews = new ArrayList<>();
 
     public Book(String isbn, String title, String description, String authorName) {
         this.isbn = isbn;
@@ -50,6 +54,14 @@ public class Book {
         this.authorName = authorName;
     }
 
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
@@ -57,6 +69,7 @@ public class Book {
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", authorName='" + authorName + '\'' +
+                ", reviews=" + reviews +
                 '}';
     }
 }

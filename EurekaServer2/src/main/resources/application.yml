@@ -5,7 +5,7 @@ eureka:
   instance:
     hostname: eurekaserver2
     appname: eureka-cluster
-    environment: local
+  environment: local
   client:
     serviceUrl:
       defaultZone:
